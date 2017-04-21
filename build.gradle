@@ -9,6 +9,13 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+
+httpPort = 8887
+stopPort = 8081
+stopKey = 'stopKey'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -19,6 +26,8 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+	
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
 
